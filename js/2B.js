@@ -64,8 +64,11 @@ function load_cluster_data() {
 
 // Init circles in plot
 function generate_circles() {
+  // We group into two categories
   kmeans = svg.append("g");
   centroids = svg.append("g");
+
+  // Regular data points
   kmeans.selectAll("circle")
       .data(kmeans_data)
       .enter()
@@ -75,6 +78,7 @@ function generate_circles() {
       .attr("r", 3)
       .style("fill", function(d) { return colors[parseInt(d.k2)]; });
 
+  // Centroids
   centroids.selectAll("circle")
       .data(centroids_data["k2"])
       .enter()
@@ -123,7 +127,7 @@ d3.select("#kmeans6")
 		updatePlot(current_kmeans);
 });
 
-// Updates the vis depending on which button was pressed
+// Updates the vis depending on the value of kmeans
 function updatePlot(le_number) {
   switch(le_number) {
     case 2:
@@ -202,7 +206,7 @@ function updatePlot(le_number) {
       .style("fill", function(d) {return colors[d.class];});
       break;
     case 6:
-                // Update dots/circles
+      // Update dots/circles
       kmeans.selectAll("circle")
       .data(kmeans_data)
       .style("fill", function(d) { return colors[parseInt(d.k6)]; });
@@ -223,40 +227,20 @@ function updatePlot(le_number) {
     default:
   }
 }
-// Button clicking for css activations
-$('#kmeans2').click(function() {
-    temp_string = "#kmeans" + old_kmeans;
-    $(temp_string).removeClass('active');
-    $("#kmeans2").addClass('active');
-});
-$('#kmeans3').click(function() {
-    temp_string = "#kmeans" + old_kmeans;
-    $(temp_string).removeClass('active');
-    $("#kmeans3").addClass('active');
-});
-$('#kmeans4').click(function() {
-    temp_string = "#kmeans" + old_kmeans;
-    $(temp_string).removeClass('active');
-    $("#kmeans4").addClass('active');
-});
-$('#kmeans5').click(function() {
-    temp_string = "#kmeans" + old_kmeans;
-    $(temp_string).removeClass('active');
-    $("#kmeans5").addClass('active');
-});
-$('#kmeans6').click(function() {
-    temp_string = "#kmeans" + old_kmeans;
-    $(temp_string).removeClass('active');
-    $("#kmeans6").addClass('active');
-});
 
-// Preview when hovering
+// Preview when hovering and add the active effect for the buttons click
+// Uses jquery syntax, where we call our d3 functions instead of the d3 syntax
 $("#kmeans2").on({
     mouseenter: function () {
         updatePlot(2);
     },
     mouseleave: function () {
         updatePlot(current_kmeans);
+    },
+    click: function () {
+        temp_string = "#kmeans" + old_kmeans;
+        $(temp_string).removeClass('active');
+        $("#kmeans2").addClass('active');
     }
 });
 $("#kmeans3").on({
@@ -265,7 +249,13 @@ $("#kmeans3").on({
     },
     mouseleave: function () {
         updatePlot(current_kmeans);
+    },
+    click: function () {
+        temp_string = "#kmeans" + old_kmeans;
+        $(temp_string).removeClass('active');
+        $("#kmeans3").addClass('active');
     }
+    
 });
 $("#kmeans4").on({
     mouseenter: function () {
@@ -273,6 +263,11 @@ $("#kmeans4").on({
     },
     mouseleave: function () {
         updatePlot(current_kmeans);
+    },
+    click: function () {
+        temp_string = "#kmeans" + old_kmeans;
+        $(temp_string).removeClass('active');
+        $("#kmeans4").addClass('active');
     }
 });
 $("#kmeans5").on({
@@ -281,6 +276,11 @@ $("#kmeans5").on({
     },
     mouseleave: function () {
         updatePlot(current_kmeans);
+    },
+    click: function() {
+        temp_string = "#kmeans" + old_kmeans;
+        $(temp_string).removeClass('active');
+        $("#kmeans5").addClass('active');
     }
 });
 $("#kmeans6").on({
@@ -289,6 +289,13 @@ $("#kmeans6").on({
     },
     mouseleave: function () {
         updatePlot(current_kmeans);
+    },
+    click: function() {
+        temp_string = "#kmeans" + old_kmeans;
+        $(temp_string).removeClass('active');
+        $("#kmeans6").addClass('active');
     }
 });
+
+// Start the main function
 load_geo_data();

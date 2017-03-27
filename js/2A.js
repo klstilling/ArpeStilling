@@ -1,4 +1,4 @@
-// define width and height
+// define global variables
 var scatterWidth = 700;
 var scatterHeight = 500;
 var scatterPadding = 70;
@@ -50,7 +50,7 @@ d3.select("#btn-2015")
  		}
  	});
 
-// keep the button active
+// jquery for showing active buttons and removing active from other
 $('#btn-2015').click(function() {
     $('#btn-2003').removeClass('active');
     $('#btn-2015').addClass('active');
@@ -66,6 +66,8 @@ d3.json("data/2003.json", function(data) {
 		return a.district.localeCompare(b.district);
 	});
 	scatterDatasets["2003"] = data;
+
+	// calls initialize plot after min and max have been found
 	findMinMax(data, initializePlot);
 });
 

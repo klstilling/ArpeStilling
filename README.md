@@ -1,4 +1,6 @@
-# 02806 Social Data Analysis -- Assignment 2
+# 02806 Social Data Analysis - Assignment 2
+
+Link to the live website: klstilling.github.io/ArpeStilling
 
 We have put the programs that we wrote for extracting and formatting data in
 the `data-extraction/` directory. These are in the IPython notebook format.

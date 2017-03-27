@@ -70,7 +70,7 @@
                 <div class="intro-text">
                     <hr class="line-light">
                     <h1 class="name">Assignment 2 </h1>
-                    <span class="skills">02806 - Social Data and Visualization 2017</span>
+                    <span class="skills">02806 - Social Data Analysis and Visualization F17</span>
                     <hr class="line-light">
                     <p> Visualizing San Francisco Crime Data using the D3 JavaScript library</p>
                 </div>
@@ -104,7 +104,26 @@
 					can hover over a point in the coordinate system to get a
 					summary of total crime, prostitution incidents and
 					vehicle theft incidents.
-				</p>
+				</p><p>
+					We scale the axis based on the maximum values of the
+					two datasets.
+					We are not rescaling the axis when we
+					switch between the datasets for the two years. This results
+					in a plot where it is much easier to see the change
+					in the prostitution and vehicle theft categories. It is
+					much easier to compare the change between the two years
+					when the axis are kept on transition.
+				</p><p>
+					When we compare the years 2003 and 2015 we can see that
+					for most districts the total crime is roughly the same,
+					but the number of prostitution and vehicle theft incidents
+					have been reduced. Most notably the 'Northern' and
+					'Mission' districts have greatly reduced their number of
+					the forementioned incidents.
+					When we look at the 'Southern' and 'Central' districts,
+					the total number of crime incidents have actually
+					increased while there have been a decrease in the
+					two categories.
             </div>
         </div>
 
@@ -128,14 +147,23 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <p>
-				The following visualization clusters Prostitution crime
+                The following d3 visualization is created from geodata of San Francisco and the SFPD dataset. 
+				We cluster Prostitution crime
 				incidents from the SFPD dataset based on a K-Means clustering
-				algorithm. Click the buttons in order to change the value of
+				algorithm. Click on the buttons in order to change the value of
 				K for the K-means algorithm.
 				</p><p>
 				You can also hover over one of the buttons to get a quick
 				overview of the K-means clustering with the K-value listed
-				on the button.
+				on the button. 
+                </p>
+                <p>
+                    The visualization illustrates that there seems to be atleast 3 clusters.
+                    One could argue that 4 clusters is more optimal, but when k=5 is chosen, we 
+                    divide the top right cluster into two different clusters. This does not visually seem 
+                    like a very good idea. 
+
+                </p>
             </div>
         </div>
             <div class="btn-group" role="group" id="button-group1">

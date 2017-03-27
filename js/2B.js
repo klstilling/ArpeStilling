@@ -17,6 +17,16 @@ var svg = d3.select("#ab")
       .attr("width", w)
       .attr("height", h);
 
+svg.append("text")
+ .attr("x",0)
+ .attr("y",50)
+ .attr("fill", "black")
+ .attr("font-family", "sans-serif")
+ .attr("font-size", "40px")
+ .text(function(){
+    return "San Francisco";     
+ });
+
 //Load in GeoJSON data
 function load_geo_data(argument) {
   "use strict";
